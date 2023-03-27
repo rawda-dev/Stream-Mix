@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import User from "../models/user.model";
 import { connect } from "../utils/dbConnection";
 const request = supertest(app);
-describe("User", () => {
+describe("POST /api/users", () => {
   beforeAll(async () => {
     await connect();
   });
