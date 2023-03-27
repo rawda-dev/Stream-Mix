@@ -1,4 +1,8 @@
-import User from "../models/User";
+import User from "../models/user.model";
+import supertest from "supertest";
+import app from "../server";
+const request = supertest(app);
+
 export let user;
 export const createUser = async () => {
   user = new User({

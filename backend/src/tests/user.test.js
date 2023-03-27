@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 import User from "../models/user.model";
 import { connect } from "../utils/dbConnection";
-import { user1, createUser, getUserHeader } from "./authHeader";
+import { user, createUser, getUserHeader } from "./authHeader";
 const request = supertest(app);
 
 describe("POST /api/users", () => {
