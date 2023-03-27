@@ -111,3 +111,25 @@ export const video = (req, res) => {
     });
   }
 };
+export const listRelated = async (req, res) => {
+  let media = await Media.find({
+    _id: { $ne: req.media },
+    genre: req.media.genre,
+  })
+    .limit(5)
+    .populate("postedBy", "_id name")
+    .select("title description genre views created updated");
+  res.json(media);
+};
+export const increaseViews = async (req, res, next) => {
+  try {
+    let media = req.media;
+    media.views = media.views + 1;
+    await media.save();
+    next();
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
