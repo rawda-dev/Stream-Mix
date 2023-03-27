@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import User from "../models/user.model";
 import { connect } from "../utils/dbConnection";
 const request = supertest(app);
-describe("Auth", () => {
+describe("User", () => {
   beforeAll(async () => {
     await connect();
   });
@@ -26,4 +26,5 @@ describe("Auth", () => {
     expect(res.status).toBe(200);
     expect(res.body.message).toBe("Successfully signed up!");
   });
+  
 });
