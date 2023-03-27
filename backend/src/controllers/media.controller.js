@@ -151,7 +151,7 @@ export const remove = async (req, res) => {
   let media = req.media;
   try {
     let deletedMedia = req.media;
-    await Media.deleteOne({_id: media._id});
+    await Media.deleteOne({ _id: media._id });
     gridfs.delete(req.file._id);
     res.json(deletedMedia);
   } catch (err) {
@@ -176,6 +176,37 @@ export const listByUser = async (req, res) => {
       .populate("postedBy", "_id name")
       .sort("_created")
       .exec();
+    res.json(media);
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
+export const listPopular = async (req, res) => {
+  try {
+   
+    let media = await Media.find()
+      .populate("postedBy", "_id name")
+      .sort("-views")
+      .limit(5)
+      .exec();
+
+    res.json(media);
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
+export const listNew = async (req, res) => {
+  try {
+    let media = await Media.find({})
+      .populate("postedBy", "_id name")
+      .sort("-created")
+      .limit(5)
+      .exec();
+
     res.json(media);
   } catch (err) {
     return res.status(400).json({
