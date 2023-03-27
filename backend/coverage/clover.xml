@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679940429262" clover="3.2.0">
-  <project timestamp="1679940429262" name="All files">
-    <metrics statements="692" coveredstatements="429" conditionals="175" coveredconditionals="140" methods="65" coveredmethods="44" elements="932" coveredelements="613" complexity="0" loc="692" ncloc="692" packages="6" files="13" classes="13"/>
+<coverage generated="1679940558239" clover="3.2.0">
+  <project timestamp="1679940558239" name="All files">
+    <metrics statements="692" coveredstatements="435" conditionals="183" coveredconditionals="147" methods="66" coveredmethods="46" elements="941" coveredelements="628" complexity="0" loc="692" ncloc="692" packages="6" files="13" classes="13"/>
     <package name="src">
       <metrics statements="38" coveredstatements="21" conditionals="3" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="server.js" path="/home/rawda/Dev/stream-mix/backend/src/server.js">
@@ -47,7 +47,7 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="415" coveredstatements="189" conditionals="123" coveredconditionals="101" methods="46" coveredmethods="29"/>
+      <metrics statements="415" coveredstatements="195" conditionals="131" coveredconditionals="108" methods="47" coveredmethods="31"/>
       <file name="auth.controller.js" path="/home/rawda/Dev/stream-mix/backend/src/controllers/auth.controller.js">
         <metrics statements="62" coveredstatements="42" conditionals="22" coveredconditionals="16" methods="8" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
@@ -114,7 +114,7 @@
         <line num="62" count="1" type="stmt"/>
       </file>
       <file name="media.controller.js" path="/home/rawda/Dev/stream-mix/backend/src/controllers/media.controller.js">
-        <metrics statements="216" coveredstatements="56" conditionals="31" coveredconditionals="27" methods="18" coveredmethods="6"/>
+        <metrics statements="216" coveredstatements="62" conditionals="39" coveredconditionals="34" methods="19" coveredmethods="8"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="0" type="cond" truecount="6" falsecount="1"/>
         <line num="3" count="1" type="stmt"/>
@@ -155,17 +155,17 @@
         <line num="38" count="1" type="stmt"/>
         <line num="39" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="5" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="2" falsecount="0"/>
         <line num="52" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="1" type="cond" truecount="1" falsecount="0"/>

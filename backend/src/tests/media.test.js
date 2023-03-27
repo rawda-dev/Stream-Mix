@@ -25,8 +25,13 @@ describe("POST /api/media", () => {
       .field("title", "Test")
       .field("description", "Test")
       .field("genre", "Test")
-
       .attach("file", `${__dirname}/test.mp4`);
+    expect(res.status).toBe(200);
+  });
+});
+describe("GET /api/media", () => {
+  test("should get all media", async () => {
+    const res = await request.get("/api/media");
     expect(res.status).toBe(200);
   });
 });
