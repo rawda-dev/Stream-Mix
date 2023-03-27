@@ -26,5 +26,22 @@ describe("User", () => {
     expect(res.status).toBe(200);
     expect(res.body.message).toBe("Successfully signed up!");
   });
-  
+  test("should not register a user with an existing email", async () => {
+    const user = new User({
+      name: "Test",
+      email: "test123@test.com",
+      password: "testTest123*&",
+    });
+    await user.save();
+    const res = await request.post("/api/users/").send({
+      name: "Test",
+      email: "test123@test.com",
+      password: "testTest123*&",
+    });
+    expect(res.status).toBe(400);
+    expect(res.body.message).toBe("Email already exists");
+  });
+
+
+
 });
