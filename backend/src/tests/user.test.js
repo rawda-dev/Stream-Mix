@@ -74,4 +74,15 @@ describe("DELETE /api/users/:userId", () => {
     expect(res.body.email).toBe("test1@test.com");
     expect(res.body.name).toBe("Test");
   });
+  test("should not delete user with invalid credentials", async () => {
+    await createUser();
+    const authHeader = await getUserHeader();
+
+    const res = await request
+      .delete(`/api/users/${user._id}`)
+      .set("Authorization", `Bearer ${authHeader}123`);
+    expect(res.status).toBe(401);
+    expect(res.body.error).toContain("Unauthorized");
+  }
+  );
 });
