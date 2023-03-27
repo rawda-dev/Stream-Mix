@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.05% </span>
+                <span class="strong">25.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/216</span>
+                <span class='fraction'>56/216</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.09% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>27/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.14% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/14</span>
+                <span class='fraction'>6/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.05% </span>
+                <span class="strong">25.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/216</span>
+                <span class='fraction'>56/216</span>
             </div>
         
             
@@ -286,6 +286,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -295,30 +306,19 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -496,7 +496,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Media from "../models/media.model";
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >import extend from "lodash/extend";</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import extend from "lodash/extend";</span></span></span>
 import fs from "fs";
 import formidable from "formidable";
 import mongoose from "mongoose";
@@ -505,36 +505,36 @@ mongoose.connection.on("connected", () =&gt; {
   gridfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db);
 });
 &nbsp;
-export const create = <span class="fstat-no" title="function not covered" >(req, res) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  let form = new formidable.IncomingForm();</span>
-<span class="cstat-no" title="statement not covered" >  form.keepExtensions = true;</span>
-<span class="cstat-no" title="statement not covered" >  form.parse(req, async (err, fields, files) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+export const create = (req, res) =&gt; {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, async (err, fields, files) =&gt; {
+    if (err<span class="branch-0 cbranch-no" title="branch not covered" >) {</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(400).json({</span>
 <span class="cstat-no" title="statement not covered" >        error: "Video could not be uploaded",</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    let media = new Media(fields);</span>
-<span class="cstat-no" title="statement not covered" >    media.postedBy = req.profile;</span>
-<span class="cstat-no" title="statement not covered" >    if (files.video) {</span>
+    }
+    let media = new Media(fields);
+    media.postedBy = req.profile;
+    if (files.video) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >      let writestream = gridfs.openUploadStream(media._id, {</span>
 <span class="cstat-no" title="statement not covered" >        contentType: files.video.mimetype || "binary/octet-stream",</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >      fs.createReadStream(files.video.filepath).pipe(writestream);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      let result = await media.save();</span>
-<span class="cstat-no" title="statement not covered" >      result.postedBy.hashedPassword = undefined;</span>
-<span class="cstat-no" title="statement not covered" >      result.postedBy.salt = undefined;</span>
-<span class="cstat-no" title="statement not covered" >      result.postedBy.photo = undefined;</span>
-<span class="cstat-no" title="statement not covered" >      res.status(200).json(result);</span>
-<span class="cstat-no" title="statement not covered" >    } catch (err) {</span>
+    try {
+      let result = await media.save();
+      result.postedBy.hashedPassword = undefined;
+      result.postedBy.salt = undefined;
+      result.postedBy.photo = undefined;
+      res.status(200).json(result);
+<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >    } catch (err) {</span></span>
 <span class="cstat-no" title="statement not covered" >      return res.status(400).json({</span>
 <span class="cstat-no" title="statement not covered" >        error: "Something went wrong",</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+    }
+  });
+};
 export const list = <span class="fstat-no" title="function not covered" >async (req, res) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
 <span class="cstat-no" title="statement not covered" >    let media = await Media.find()</span>
@@ -718,7 +718,7 @@ export const listNew = <span class="fstat-no" title="function not covered" >asyn
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-27T17:53:41.196Z
+                at 2023-03-27T18:07:09.206Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
