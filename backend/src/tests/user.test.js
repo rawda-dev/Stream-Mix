@@ -104,10 +104,13 @@ describe("PUT /api/users/:userId", () => {
       .put(`/api/users/${user._id}`)
       .set("Authorization", `Bearer ${authHeader}`)
       .set({ connetion: "keep-alive" })
-      .field("name", "Test2");
+      .field("name", "Test2")
+      .field("email", "test2@test.com")
+      .field("password", "testTest123*&")
+      .attach("image", `${__dirname}/test.jpg`);
 
     expect(res.status).toBe(200);
-    expect(res.body.email).toBe("test1@test.com");
+    expect(res.body.email).toBe("test2@test.com");
     expect(res.body.name).toBe("Test2");
   });
 });

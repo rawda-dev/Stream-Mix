@@ -6,7 +6,7 @@
   "author": "Rawda Yasser",
   "scripts": {
     "dev": "NODE_ENV=development nodemon --exec babel-node src/server.js",
-    "test": "NODE_ENV=test jest --runInBand"
+    "test": "NODE_ENV=test jest --runInBand --testTimeout=1500"
   },
   "keywords": [],
   "license": "ISC",
