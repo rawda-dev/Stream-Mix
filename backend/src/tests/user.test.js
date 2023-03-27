@@ -6,17 +6,17 @@ import User from "../models/user.model";
 import { connect } from "../utils/dbConnection";
 import { user, createUser, getUserHeader } from "./authHeader";
 const request = supertest(app);
-
+beforeAll(async () => {
+  await connect();
+});
+afterAll(async () => {
+  await mongoose.connection.close();
+});
+afterEach(async () => {
+  await User.deleteMany({});
+});
 describe("POST /api/users", () => {
-  beforeAll(async () => {
-    await connect();
-  });
-  afterAll(async () => {
-    await mongoose.connection.close();
-  });
-  afterEach(async () => {
-    await User.deleteMany({});
-  });
+
 
   it("should register a user", async () => {
     const res = await request.post("/api/users/").send({
@@ -54,15 +54,7 @@ describe("POST /api/users", () => {
   });
 });
 describe("DELETE /api/users/:userId", () => {
-  beforeAll(async () => {
-    await connect();
-  });
-  afterAll(async () => {
-    await mongoose.connection.close();
-  });
-  afterEach(async () => {
-    await User.deleteMany({});
-  });
+ 
   test("should delete a user", async () => {
     await createUser();
     const authHeader = await getUserHeader();
@@ -83,6 +75,28 @@ describe("DELETE /api/users/:userId", () => {
       .set("Authorization", `Bearer ${authHeader}123`);
     expect(res.status).toBe(401);
     expect(res.body.error).toContain("Unauthorized");
-  }
-  );
+  });
+});
+describe("GET /api/users/:userId", () => {
+
+
+  test("should get a user", async () => {
+    await createUser();
+    const authHeader = await getUserHeader();
+    const res = await request
+      .get(`/api/users/${user._id}`)
+      .set("Authorization", `Bearer ${authHeader}`);
+    expect(res.status).toBe(200);
+    expect(res.body.email).toBe("test1@test.com");
+    expect(res.body.name).toBe("Test");
+  });
+  test("should not get user with invalid credentials", async () => {
+    await createUser();
+    const authHeader = await getUserHeader();
+    const res = await request
+      .get(`/api/users/${user._id}`)
+      .set("Authorization", `Bearer ${authHeader}123`);
+    expect(res.status).toBe(401);
+    expect(res.body.error).toContain("Unauthorized");
+  });
 });
