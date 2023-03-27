@@ -114,3 +114,29 @@ describe("PUT /api/users/:userId", () => {
     expect(res.body.name).toBe("Test2");
   });
 });
+describe("GET /api/users", () => {
+  test("should get all users", async () => {
+    await createUser();
+    const authHeader = await getUserHeader();
+    const user2 = new User({
+      name: "Test2",
+      email: "test2@test.com",
+      password: "testTest123*&",
+    });
+    await user2.save();
+    const user3 = new User({
+      name: "Test3",
+      email: "test3@test.com",
+      password: "testTest123*&",
+    });
+    await user3.save();
+
+
+    const res = await request
+      .get("/api/users")
+      .set("Authorization", `Bearer ${authHeader}`);
+    expect(res.status).toBe(200);
+    expect(res.body[0].name).toBe("Test");
+    expect(res.body).toHaveLength(3);
+  });
+});
