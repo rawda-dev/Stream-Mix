@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api", mediaRouter);
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "test") {
   mongoose
     .connect(config.MONGO_URI, {
       useNewUrlParser: true,

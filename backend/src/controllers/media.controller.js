@@ -22,6 +22,7 @@ export const create = (req, res) => {
     if (files.video) {
       let writestream = gridfs.openUploadStream(media._id, {
         contentType: files.video.mimetype || "binary/octet-stream",
+        
       });
       fs.createReadStream(files.video.filepath).pipe(writestream);
     }

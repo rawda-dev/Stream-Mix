@@ -10,7 +10,7 @@ import {
   remove,
   listByUser,
   listPopular,
-  listNew
+  listNew,
 } from "../controllers/media.controller";
 import { hasAuthorization, requireLogin } from "../controllers/auth.controller";
 import { userByID } from "../controllers/user.controller";
@@ -21,9 +21,9 @@ mediaRouter.route("/media").get(list);
 mediaRouter
   .route("/users/:userId/media/")
   .post(requireLogin, hasAuthorization, create)
-  .get(requireLogin, listByUser); 
-
+  .get(requireLogin, listByUser);
 mediaRouter.route("/media/:mediaId").get(increaseViews, video);
+
 mediaRouter.route("/media/:mediaId/related").get(listRelated);
 
 mediaRouter
