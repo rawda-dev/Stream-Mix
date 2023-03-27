@@ -28,6 +28,12 @@ export const create = async (req, res) => {
         message: "Email already exists",
       });
     }
+    const emailValid = user.email.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+    if (!emailValid) {
+      return res.status(400).json({
+        message: "Invalid email",
+      });
+    }
     await user.save();
 
     return res.status(200).json({

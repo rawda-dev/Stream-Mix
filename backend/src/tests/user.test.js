@@ -41,7 +41,13 @@ describe("User", () => {
     expect(res.status).toBe(400);
     expect(res.body.message).toBe("Email already exists");
   });
-
-
-
+  test("should not register a user with an invalid email", async () => {
+    const res = await request.post("/api/users/").send({
+      name: "Test",
+      email: "test123test.com",
+      password: "testTest123*&",
+    });
+    expect(res.status).toBe(400);
+    expect(res.body.message).toBe("Invalid email");
+  });
 });
