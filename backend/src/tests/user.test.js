@@ -16,8 +16,6 @@ afterEach(async () => {
   await User.deleteMany({});
 });
 describe("POST /api/users", () => {
-
-
   it("should register a user", async () => {
     const res = await request.post("/api/users/").send({
       name: "Test",
@@ -54,7 +52,6 @@ describe("POST /api/users", () => {
   });
 });
 describe("DELETE /api/users/:userId", () => {
- 
   test("should delete a user", async () => {
     await createUser();
     const authHeader = await getUserHeader();
@@ -78,8 +75,6 @@ describe("DELETE /api/users/:userId", () => {
   });
 });
 describe("GET /api/users/:userId", () => {
-
-
   test("should get a user", async () => {
     await createUser();
     const authHeader = await getUserHeader();
@@ -98,5 +93,21 @@ describe("GET /api/users/:userId", () => {
       .set("Authorization", `Bearer ${authHeader}123`);
     expect(res.status).toBe(401);
     expect(res.body.error).toContain("Unauthorized");
+  });
+});
+
+describe("PUT /api/users/:userId", () => {
+  test("should update a user", async () => {
+    await createUser();
+    const authHeader = await getUserHeader();
+    const res = await request
+      .put(`/api/users/${user._id}`)
+      .set("Authorization", `Bearer ${authHeader}`)
+      .set({ connetion: "keep-alive" })
+      .field("name", "Test2");
+
+    expect(res.status).toBe(200);
+    expect(res.body.email).toBe("test1@test.com");
+    expect(res.body.name).toBe("Test2");
   });
 });
