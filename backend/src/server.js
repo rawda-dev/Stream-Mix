@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route";
 import authRouter from "./routes/auth.route";
+import mediaRouter from "./routes/media.route";
 import { config } from "./utils/config";
 const app = express();
 app.get("/", (req, res) => {
@@ -10,6 +11,7 @@ app.get("/", (req, res) => {
 app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api", mediaRouter);
 mongoose
   .connect(config.MONGO_URI, {
     useNewUrlParser: true,
