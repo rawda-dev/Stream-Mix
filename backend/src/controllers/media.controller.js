@@ -133,3 +133,53 @@ export const increaseViews = async (req, res, next) => {
     });
   }
 };
+
+export const update = async (req, res) => {
+  let media = req.media;
+  media = extend(media, req.body);
+  media.updated = Date.now();
+  try {
+    let result = await media.save();
+    res.status(200).json(result);
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
+export const remove = async (req, res) => {
+  let media = req.media;
+  try {
+    let deletedMedia = req.media;
+    await Media.deleteOne({_id: media._id});
+    gridfs.delete(req.file._id);
+    res.json(deletedMedia);
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
+export const isPoster = (req, res, next) => {
+  let isPoster =
+    req.media && req.auth && req.media.postedBy._id == req.auth._id;
+  if (!isPoster) {
+    return res.status("403").json({
+      error: "User is not authorized",
+    });
+  }
+  next();
+};
+export const listByUser = async (req, res) => {
+  try {
+    let media = await Media.find({ postedBy: req.profile._id })
+      .populate("postedBy", "_id name")
+      .sort("_created")
+      .exec();
+    res.json(media);
+  } catch (err) {
+    return res.status(400).json({
+      error: "Something went wrong",
+    });
+  }
+};
