@@ -4,7 +4,7 @@ import { useState } from "react";
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="shadow-2xl">
+    <nav className="shadow-xl mb-5">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
@@ -12,7 +12,6 @@ export const Navbar = () => {
               <img className="h-8 w-auto" src={logo} alt="Stream Mix Logo" />
             </Link>
           </div>
-         
 
           <div className="flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="hidden sm:flex sm:ml-6">
