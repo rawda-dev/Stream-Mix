@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+import { Register } from "./pages/user/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PageWithNavbar } from "./pages/PageWithNavbar";
 import { Profile } from "./pages/MyProfile";
+import { EditProfile } from "./pages/EditProfile";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -30,6 +31,15 @@ root.render(
           element={
             <PageWithNavbar>
               <Profile />
+            </PageWithNavbar>
+          }
+        />
+        <Route
+          path="/edit-profile"
+          exact
+          element={
+            <PageWithNavbar>
+              <EditProfile />
             </PageWithNavbar>
           }
         />

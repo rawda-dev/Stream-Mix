@@ -1,7 +1,14 @@
 import React from "react";
+import { DeleteDialog } from "./components/DeleteDialog";
 
 function App() {
-  return <h2>Stream Mix</h2>;
+  return (
+    <DeleteDialog
+      open={true}
+      title="Delete Account"
+      description="Are you sure you want to delete your account?"
+    />
+  );
 }
 
 export default App;

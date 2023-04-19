@@ -1,25 +1,23 @@
-export const login = async (user) => {
+
+import axios from 'axios';
+export const login = async (email, password) => {
   try {
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(user),
+    const response = await axios.post('/api/auth/login', {
+      email,
+      password,
     });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
   }
 };
-
 export const logout = async () => {
   try {
-    const response = await fetch("/api/auth/signout/", { method: "GET" });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
+    const response = await axios.get('/api/auth/logout');
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
   }
-};
+}
+
+  
