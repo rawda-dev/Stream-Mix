@@ -3,28 +3,29 @@ import logo from "../assets/logo.png";
 import { useState } from "react";
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <nav className="shadow-xl mb-5">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <nav className="mb-5 shadow-xl">
+      <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <Link to="/">
-              <img className="h-8 w-auto" src={logo} alt="Stream Mix Logo" />
+              <img className="w-auto h-8" src={logo} alt="Stream Mix Logo" />
             </Link>
           </div>
 
-          <div className="flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="items-center justify-center flex-1 sm:items-stretch sm:justify-start">
             <div className="hidden sm:flex sm:ml-6">
               <div className="flex space-x-2">
                 <Link
                   to="/"
-                  className="text-gray-900 hover:text-rose-400 px-3 py-2 rounded-md text-sm font-medium"
+                  className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-rose-400"
                 >
                   My videos
                 </Link>
                 <Link
                   to="/"
-                  className="text-gray-900 hover:text-rose-400  px-3 py-2 rounded-md text-sm font-medium"
+                  className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-rose-400"
                 >
                   Upload video
                 </Link>
@@ -36,15 +37,35 @@ export const Navbar = () => {
               <img
                 src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
                 alt="avatar"
-                className="border border-gray-300 rounded-full w-1/2"
+                onClick={() => setToggleMenu(!toggleMenu)}
+                className="w-1/2 border border-gray-300 rounded-full"
               />
             </Link>
+            {toggleMenu && (
+              <div className="absolute right-0 w-48 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
+                
+                <div className="px-1 py-1 ">
+                  <Link
+                    to="/my-profile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  >
+                    My profile
+                  </Link>
+                  <Link
+                    to="/logout"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  >
+                    Logout
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             <button
               type="button"
               onClick={() => setToggle(!toggle)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
@@ -56,7 +77,7 @@ export const Navbar = () => {
                 Menu open: "hidden", Menu closed: "block"
               --> */}
               <svg
-                className="block h-6 w-6"
+                className="block w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -77,7 +98,7 @@ export const Navbar = () => {
                 Menu open: "block", Menu closed: "hidden"
               --> */}
               <svg
-                className="hidden h-6 w-6"
+                className="hidden w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -102,14 +123,14 @@ export const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
               to="/"
-              className="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:bg-gray-700 hover:text-white"
             >
               My videos
             </Link>
 
             <Link
               to="/"
-              className="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:bg-gray-700 hover:text-white"
             >
               Upload a video
             </Link>
@@ -120,9 +141,9 @@ export const Navbar = () => {
   );
 };
 /**
- * <nav className="shadow-2xl flex flex-row items-center justify-between px-10 py-3">
+ * <nav className="flex flex-row items-center justify-between px-10 py-3 shadow-2xl">
       
-      <div className="flex flex-row items-center space-x-5 w-3/4">
+      <div className="flex flex-row items-center w-3/4 space-x-5">
         <Link to="/">
           <img src={logo} alt="Stream Mix logo" width={150} className="mr-5" />
         </Link>
@@ -138,7 +159,7 @@ export const Navbar = () => {
           <img
             src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
             alt="avatar"
-            className="border border-gray-300 rounded-full w-1/2"
+            className="w-1/2 border border-gray-300 rounded-full"
           />
         </Link>
       </div>
